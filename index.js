@@ -4,7 +4,7 @@ const app = express();
 
 const port = process.env.PORT || 8000;
 const contactRoutes = require("./routes//contact-routes");
-
+app.use(express.json());
 app.use("/api/contacts", contactRoutes);
 
 app.listen(port, () => {
