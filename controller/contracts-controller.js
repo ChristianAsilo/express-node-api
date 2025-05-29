@@ -1,23 +1,26 @@
-const getContact = async (req, res) => {
-  res.status(200).json({ message: "GET ALL CONTACTS" });
-};
+const Contact = require("../models/contacts-model");
 
-const getContactId = async (req, res) => {
+const asyncHandler = require("express-async-handler");
+const getContact = asyncHandler(async (req, res) => {
+  res.status(200).json(Contact);
+});
+
+const getContactId = asyncHandler(async (req, res) => {
   res.status(200).json({ message: `Get ${req.params.id}` });
-};
+});
 
-const createContact = async (req, res) => {
+const createContact = asyncHandler(async (req, res) => {
   console.log(`${req.params}`);
 
   res.status(201).json({ message: "Create CONTACTS" });
-};
-const updateContact = async (req, res) => {
+});
+const updateContact = asyncHandler(async (req, res) => {
   res.status(200).json({ message: `Update ${req.params.id}` });
-};
+});
 
-const deleteContact = async (req, res) => {
+const deleteContact = asyncHandler(async (req, res) => {
   res.status(200).json({ message: `Delete ID: ${req.params.id}` });
-};
+});
 
 module.exports = {
   getContact,
